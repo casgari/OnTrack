@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pace Calculator
+{% endblock %}
+
+{% block main %}
+    <!--Form allowing user to input time/distance of run-->
+    <form class="section" action="/pacecalc" method="post">
+        <h1 class="header">Calculate Your Pace!</h1>
+        <!--Time-->
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="hours" placeholder="Hours" type="number" min="0">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="minutes" placeholder="Minutes" type="number" min="0">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="seconds" placeholder="Seconds" type="number" min="0">
+        </div>
+        <!--Distance-->
+        <label for="distance">Distance ran:</label>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="distance" placeholder="Distance" type="text">
+            <select name="measurement" id="measurement">
+                <option value="km">Km</option>
+                <option value="miles">Miles</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Calculate</button>
+    </form>
+{% endblock %}
