@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Race Calculator
+{% endblock %}
+
+{% block main %}
+    <!--Form allowing users to input time/distance of current run & distance of future run-->
+    <form class="section" action="/racecalculator" method="post">
+        <h1 class="header">Predict your time in another distance!</h1>
+        <label>Enter current run time</label>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="hours" placeholder="Hours" type="number" min="0">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="minutes" placeholder="Minutes" type="number" min="0">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="seconds" placeholder="Seconds" type="number" min="0">
+        </div>
+        
+        <div class="form-group">
+            <label>Distance ran:</label>
+            <input autocomplete="off" autofocus class="form-control" name="distance" placeholder="Distance" type="text"  required>
+            <select name="measurement" id="measurement">
+                <option value="km">Km</option>
+                <option value="miles">Miles</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Race Distance:</label>
+            <input autocomplete="off" autofocus class="form-control" name="predictdistance" placeholder="Distance" type="text" required>
+            <select name="measurement2" id="measurement2">
+                <option value="km">Km</option>
+                <option value="miles">Miles</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Calculate</button>
+    </form>
+
+{% endblock %}
