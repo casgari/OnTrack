@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Confirm Friend
+{% endblock %}
+
+{% block main %}
+<div class="section">
+    <h1>Confirm Friend</h1>
+    <!--Displays found friend info-->
+    <h3>{{ names.name }}</h3>
+    <p>{{ names.gender }}, {{ names.age }}</p>
+    <p>Weight: {{ names.weight }} pounds</p>
+    <p>Height: {{ names.height_ft }}'{{ names.height_in }}''</p>
+    <form action="/friendsfound" method="post">
+        <input autocomplete="off" autofocus class="form-control" name="username" type="text" value="{{ search }}" readonly>
+        <button class="btn btn-primary" type="submit">Follow</button>
+        <a class="nav-link" href="/">Cancel</a>
+    </form>
+</div> 
+{% endblock %}
