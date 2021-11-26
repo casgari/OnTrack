@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update Profile
+{% endblock %}
+
+{% block main %}
+    <!--Allows user to update personal info-->
+    <form class="section" action="/updateprofile" method="post">
+        <h1>Update Profile</h1>
+        <div class="form-group">
+            <label>Name: </label>
+            <input class="form-control" name="name" placeholder="Name" type="text" value="{{ prev_info.name }}" >
+        </div>
+        <div class="form-group">
+            <label>Weight (lbs): </label>
+            <input autocomplete="off" autofocus class="form-control" name="weight" placeholder="Weight" type="number" min="0" value="{{ prev_info.weight }}">
+        </div>
+        <div class="form-group">
+            <label>Age: </label>
+            <input class="form-control" name="age" placeholder="Age" type="number" min="0" max="120" value="{{ prev_info.age }}">
+        </div>
+        <div class="form-group">
+            <label>Gender: </label>
+            <select name="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Nonbinary">Nonbinary</option>
+            </select>
+        </div>
+       
+        <div class="form-group">
+            <label>Height: </label>
+            <input class="form-control" name="height_ft" placeholder="ft" type="number" min="0" max="8" value="{{ prev_info.height_ft }}">
+            <input class="form-control" name="height_in" placeholder="inches" type="number" min="0" max="12" value="{{ prev_info.height_in }}">
+        </div>
+        <button class="btn btn-primary" type="submit">Update</button>
+        <!--Cancel option-->
+        <a class="nav-link" href="/profile">Cancel</a>
+    </form>
+{% endblock %}
