@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <!--Displays welcome banner (credit to Bootstrap)-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Welcome to OnTrack</h1>
+            <p class="lead">Track your progress as you move towards your running goals!</p>
+        </div>
+    </div>
+    
+    <!--Displays runs of user and friends-->
+    <h2>Community Runs:</h2>
+    <hr>
+        {% for run in runs %}
+        
+        <h3>{{ run.name }}</h3>
+        <table class="table1">
+            <tr>
+                <td>{{ run.month }}/{{ run.day }}/{{ run.day }}</td>
+                <td>{{ run.distance }} {{ run.measurement }}</td>
+            </tr>
+            <tr>
+                <td>{{ run.hours }}hr {{ run.minutes }}min {{ run.seconds }}sec</td>
+                <td>Pace: {{ run.pace_min }}min {{ run.pace_sec }}sec per {{ run.measurement }}</td>
+            </tr>    
+        </table>
+        <hr>
+        
+        {% endfor %}
+
+{% endblock %}
