@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Upload Run
+{% endblock %}
+
+{% block main %}
+<!--Form allowing user to upload a run distance/time/date-->
+    <form class="section" action="/upload" method="post">
+        <h1>Upload Your Run!</h1>
+        <!--Time-->
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="hours" placeholder="Hours" type="number" min="0" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="minutes" placeholder="Minutes" type="number" min="0" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="seconds" placeholder="Seconds" type="number" min="0" required>
+        </div>
+        <!--Distance-->
+        <label for="distance">Distance ran:</label>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="distance" placeholder="Distance" type="text" required>
+            <select name="measurement" id="measurement">
+                <option value="km">Km</option>
+                <option value="miles">Miles</option>
+            </select>
+        </div>
+        <!--Date-->
+        <label>Date: </label>
+        <div class="form-group">
+            <label>Day: </label>
+            <select name="day" id="day">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+        
+            <label>Month: </label>
+            <select name="month" id="month">
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12" selected>December</option>
+            </select>
+            
+            <label>Year: </label>
+            <select name="year" id="year">
+                <option value="2021">2021</option>
+                <option value="2020" selected>2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Upload</button>
+    </form>
+{% endblock %}
