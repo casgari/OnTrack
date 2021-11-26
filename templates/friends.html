@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Find Friends
+{% endblock %}
+
+{% block main %}
+<!--Form allowing user to search for friend's username-->
+    <form class="section" action="/friends" method="post">
+        <h1>Find New Friends!</h1>
+        <label>Search for a friends name:</label>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="name" placeholder="Username" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form><br>
+    
+    <h3>My Friends</h3>
+    
+    <table class="table table-striped">
+        <tbody>
+            {% for friend in friends %}
+            <tr>
+                <td>{{ friend.name }}</td>
+                <form action="/friendprofile" method="post">
+                    <input autocomplete="off" autofocus class="form-control" name="friend_id" type="hidden" value="{{ friend.id }}">
+                    <td><button class="btn btn-primary" type="submit">View profile</button></td>
+                </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+    
+    
+    
+    
+{% endblock %}
