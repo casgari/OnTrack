@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Remove Friend
+{% endblock %}
+
+{% block main %}
+<div class="section">
+    <h1>Remove Friend</h1>
+    <!--Displays found friend info-->
+    <h3>{{ friend.name }}</h3>
+    <p>{{ friend.gender }}, {{ friend.age }}</p>
+    <p>Weight: {{ friend.weight }} pounds</p>
+    <p>Height: {{ friend.height_ft }}'{{ friend.height_in }}''</p>
+    <form action="/removefriend">
+        <input autocomplete="off" autofocus class="form-control" name="id" type="hidden" value="{{ friend.id }}">
+        <button class="btn btn-primary" type="submit">Remove</button>
+    </form>
+</div> 
+{% endblock %}
